@@ -12,8 +12,8 @@
 # last modify: 04.07.2017
 # bug or anything: d43M0n23@3xpl0it.com
 ######################################################################
-COLOR:
-#######################################################################################
+
+######################################################################
 
 # Bash sTyl3!
 clear='\033[0m'			#alle Attribute zurücksetzen
@@ -30,6 +30,33 @@ blue='\033[34m'			#Schriftfarbe blau
 mag='\033[35m'			#Schriftfarbe magenta
 turk='\033[36m'			#Schriftfarbe türkis
 white='\033[37m'		#Schriftfarbe weiß
-########################################################################################
+######################################################################
 
+##Variablen
+DATE=$(date +%F)
+version=1.0
+vdate=15.09.2017
 
+# Local Destination
+#DESTINATION=/home/bk4/
+
+# Logfile
+#LOG="bk4.log"
+
+# Email
+email=alex@xcoorp.com
+
+# Tools install
+if ! hash searchsploit 2>/dev/null; then sudo apt-get update && apt-get upgrade -y; sudo apt-get install --yes searchsploit ; fi
+if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y; sudo apt-get install --yes metasploit-framework ; fi
+
+### FUNCTIONS ###
+
+### START SCRIPT ###
+read -p "Exploit (e.g. Wordpress)? " $search1 $search2 $search3
+if [ $search1 ]; then
+		searchsploit $search1 $search2 $search3
+#                sh_mail
+#                else
+#                echo -e "\nPlease enter a domain!\n"
+fi
