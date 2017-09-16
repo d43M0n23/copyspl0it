@@ -1,5 +1,5 @@
 # copyspl0it v 1.0
-copyspl0it.sh is a private script written in bash for backup www & mysql
+copyspl0it.sh is a private script written in bash for search & copy exploits to metasploit-framework
 
 last modify: 15.09.2017
 bug or anything: d43M0n23@3xpl0it.com
