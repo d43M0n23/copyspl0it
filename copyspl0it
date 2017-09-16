@@ -4,12 +4,15 @@
 # copyspl0it
 # search and copy Exploit from exploit-db 2 metasploit-framework
 # Needs searchsploit amd metasploit-framework installed
-# apt-get install mplayer lame
+# script install this tools for you
+# First run from github directory ./copyspl0it ... after install 
+# use command copyspl0it system wide 
 # command: > copyspl0it $searchsting1 $searchstring2 $searchstring3
 ######################################################################
 
 ######################################################################
-# last modify: 04.07.2017
+# create 16.09.2017
+# last modify: 16.09.2017
 # bug or anything: d43M0n23@3xpl0it.com
 ######################################################################
 
