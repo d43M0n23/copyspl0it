@@ -53,10 +53,10 @@ if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y
 ### FUNCTIONS ###
 
 ### START SCRIPT ###
-read -p "Exploit (e.g. Wordpress)? " $search1 $search2 $search3
+read -p "Exploit (e.g. Wordpress)? " search1 search2 search3
 if [ $search1 ]; then
 		searchsploit $search1 $search2 $search3
-#                sh_mail
-#                else
-#                echo -e "\nPlease enter a domain!\n"
+		searchsploit $search1 $search2 $search3 -colour > search_tmp
+                else
+                echo -e "\nPlease enter a searchstring like [wordpress 4.7 content]!\n"
 fi
