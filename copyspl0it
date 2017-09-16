@@ -60,6 +60,7 @@ if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y
 if [ ! -d $INSTALL_DIR ]; then
 echo -e "\n${green} + -- --=[Your first run${clear}"
 echo -e "${green} + -- --=[This script will install copyspl0it under $INSTALL_DIR.${clear}"
+sleep 2
 mkdir -p $INSTALL_DIR 2> /dev/null
 cp -Rf $PWD/* $INSTALL_DIR 2> /dev/null
 rm -f /usr/bin/copyspl0it
@@ -93,6 +94,7 @@ sleep 1
 echo -e "\n"
 cat <<EOF
 search the exploit like searchsploit string1 string2 string3.
+e.g 'copyspl0it wordpress 4.7.0 inject'
 Then specify the number of the exploit found.
 EOF
 
@@ -120,5 +122,12 @@ if [ $exploitno ]; then
 if [ ! -d $MSF_PATH/$exploit_dir ]; then mkdir -p $MSF_PATH/$exploit_dir; fi
 	cd $SOURCE_PATH/$exploit_dir/
 	cp  $exploit_file $MSF_PATH/$exploit_dir/
+	echo -e "Your selected exploit was copy to your .msf4 Directory"
+	else 
+	echo -e "\nPlease enter the exploit number like [33613]!\n"
 fi
+echo -e "\n${red}"
+read -p "Use search by copysploit [A]gain or [E]xit " rerun
+echo -e "\n${clear}"
+if [ $rerun = A ]; then copyspl0it fi
 exit
