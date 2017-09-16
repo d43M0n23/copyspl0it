@@ -38,7 +38,7 @@ version=1.0
 vdate=15.09.2017
 
 # Local Destination
-#DESTINATION=/home/bk4/
+INSTALL_DIR=/usr/share/copyspl0it
 
 # Logfile
 #LOG="bk4.log"
@@ -46,10 +46,20 @@ vdate=15.09.2017
 # Email
 email=alex@xcoorp.com
 
+
 # Tools install
 if ! hash searchsploit 2>/dev/null; then sudo apt-get update && apt-get upgrade -y; sudo apt-get install --yes searchsploit ; fi
 if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y; sudo apt-get install --yes metasploit-framework ; fi
 
+#INSTALL
+if [ ! -d $INSTALL_DIR ]; then
+echo -e "Your first run"
+echo -e "${green} + -- --=[This script will install copyspl0it under $INSTALL_DIR.${clear}"
+mkdir -p $INSTALL_DIR 2> /dev/null
+cp -Rf $PWD/* $INSTALL_DIR 2> /dev/null
+rm -f /usr/bin/copyspl0it
+ln -s $INSTALL_DIR/copyspl0it /usr/bin/copyspl0it
+fi
 ### FUNCTIONS ###
 
 ### START SCRIPT ###
