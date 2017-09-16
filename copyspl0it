@@ -111,14 +111,10 @@ echo -e "\n"
 read -p "Please enter the Exploit No.: (e.g. 23234)? " exploitno
 if [ $exploitno ]; then
 	exploit_path=$(cat $INSTALL_DIR/search_tmp | grep "${exploitno}" | cut -d "|" -f2)
-#	echo $exploit_path
 	exploit_dir=$exploit_path
   	exploit_dir="$(dirname $exploit_dir)"
-#	echo $exploit_dir
-#	echo "Source Path: ${SOURCE_PATH}"
-#	echo "MSF Path: ${MSF_PATH}"
 	exploit_file="$(basename $exploit_path)"
-#	echo $exploit_file
+
 if [ ! -d $MSF_PATH/$exploit_dir ]; then mkdir -p $MSF_PATH/$exploit_dir; fi
 	cd $SOURCE_PATH/$exploit_dir/
 	cp  $exploit_file $MSF_PATH/$exploit_dir/
@@ -129,5 +125,5 @@ fi
 echo -e "\n${red}"
 read -p "Use search by copysploit [A]gain or [E]xit " rerun
 echo -e "\n${clear}"
-if [ $rerun = A ]; then copyspl0it fi
+if [ $rerun = A ]; then copyspl0it; fi
 exit
