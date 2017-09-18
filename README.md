@@ -5,10 +5,7 @@ last modify: 16.09.2017
 bug or anything: d43M0n23@3xpl0it.com
 
 ## ABOUT.
-A useful script 2 automate search exploit and copy 2 metasploit-framework
-
-run script as cronjob in your crontab
-command in crontab:<pre><i><n>./copyspl0it.sh</pre></i></n>
+A useful script to search exploits (exploits-db.com) and copy automaticly to your msf4 folder -  metasploit-framework
 
 
 # SUPPORTED DISTRIBUTIONS BOTH SCRIPTS

@@ -39,8 +39,8 @@ orange='\033[93m'		#Schriftfarbe orange
 
 ##Variablen
 DATE=$(date +%F)
-version=1.0
-vdate=15.09.2017
+version=v1.0
+vdate=16.09.2017
 
 # Local Destination
 INSTALL_DIR=/usr/share/copyspl0it
@@ -58,8 +58,10 @@ if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y
 
 #INSTALL
 if [ ! -d $INSTALL_DIR ]; then
-echo -e "\n${green} + -- --=[Your first run${clear}"
+echo -e "\n${green} + -- --=[Your first run of the copyspl0it script${clear}"
 echo -e "${green} + -- --=[This script will install copyspl0it under $INSTALL_DIR.${clear}"
+echo -e "${green} + -- --=[After install you can use the command 'copyspl0it' Server/System wide${clear}"
+
 sleep 2
 mkdir -p $INSTALL_DIR 2> /dev/null
 cp -Rf $PWD/* $INSTALL_DIR 2> /dev/null
@@ -67,16 +69,9 @@ rm -f /usr/bin/copyspl0it
 ln -s $INSTALL_DIR/copyspl0it /usr/bin/copyspl0it
 fi
 ### FUNCTIONS ###
-
-### START SCRIPT ###
-#echo -e '\n'
-#echo -e '                                         .__  _______  .__  __   '
-#echo -e '  ____  ____ ______ ___.__. ____________ |  | \   _  \ |__|/  |_ '
-#echo -e '_/ ___\/  _ \\____ <   |  |/  ___/\____ \|  | /  /_\  \|  \   __\'
-#echo -e '\  \__(  <_> )  |_> >___  |\___ \ |  |_> >  |_\  \_/   \  ||  |  '
-#echo -e ' \___  >____/|   __// ____/____  >|   __/|____/\_____  /__||__|  '
-#echo -e '     \/      |__|   \/         \/ |__|               \/          '
-#echo -e "${orange} + -- --=[https://3xpl0it.com${clear} Version ${version}"
+#Latest release
+LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/d43M0n23/copyspl0it/releases/latest)
+LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
 
 
 clear
@@ -97,7 +92,7 @@ search the exploit like searchsploit string1 string2 string3.
 e.g 'copyspl0it wordpress 4.7.0 inject'
 Then specify the number of the exploit found.
 EOF
-
+echo -e "Latest Release: ${LATEST_VERSION}"
 echo -e "\n"
 read -p "Exploit (e.g. Wordpress)? " search1 search2 search3
 if [ $search1 ]; then
@@ -122,6 +117,7 @@ if [ ! -d $MSF_PATH/$exploit_dir ]; then mkdir -p $MSF_PATH/$exploit_dir; fi
 	else 
 	echo -e "\nPlease enter the exploit number like [33613]!\n"
 fi
+
 #echo -e "\n${red}"
 #read -p "Use search by copysploit [A]gain or [E]xit " rerun
 #echo -e "\n${clear}"
