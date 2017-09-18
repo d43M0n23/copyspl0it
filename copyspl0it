@@ -5,14 +5,14 @@
 # search and copy Exploit from exploit-db 2 metasploit-framework
 # Needs searchsploit amd metasploit-framework installed
 # script install this tools for you
-# First run from github directory ./copyspl0it ... after install 
-# use command copyspl0it system wide 
+# First run from github directory ./copyspl0it ... after install
+# use command copyspl0it system wide
 # command: > copyspl0it $searchsting1 $searchstring2 $searchstring3
 ######################################################################
 
 ######################################################################
 # create 16.09.2017
-# last modify: 16.09.2017
+# last modify: 18.09.2017
 # bug or anything: d43M0n23@3xpl0it.com
 ######################################################################
 
@@ -20,7 +20,7 @@
 
 # Bash sTyl3!
 clear='\033[0m'			#alle Attribute zurücksetzen
-red='\e[31m'
+red='\e[31m'			#Schriftfarbe rot
 bold='\033[1m'			#Fettschrift
 underline='\033[4m'		#Unterstreichen
 blinken='\033[5m'		#Blinken
@@ -58,7 +58,7 @@ if ! hash msfconsole 2>/dev/null; then sudo apt-get update && apt-get upgrade -y
 
 #INSTALL
 if [ ! -d $INSTALL_DIR ]; then
-echo -e "\n${green} + -- --=[Your first run of the copyspl0it script${clear}"
+echo -e "\n${green} + -- --=[This is your first run of the copyspl0it script${clear}"
 echo -e "${green} + -- --=[This script will install copyspl0it under $INSTALL_DIR.${clear}"
 echo -e "${green} + -- --=[After install you can use the command 'copyspl0it' Server/System wide${clear}"
 
@@ -73,6 +73,12 @@ fi
 LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/d43M0n23/copyspl0it/releases/latest)
 LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
 
+#UPDATE NEW VERSION
+if [ "$LATEST_RELEASE" != "$version" ]; then
+echo -e "\n${red}Your Version of Copyspl0it is outdated!${clear}"
+echo -e "\n${green}Please use the update function: copyspl0it --update!${clear}"
+sleep 5
+fi
 
 clear
 echo -e '\n'
