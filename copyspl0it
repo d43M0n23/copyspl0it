@@ -74,7 +74,7 @@ LATEST_RELEASE=$(curl -L -s -H 'Accept: application/json' https://github.com/d43
 LATEST_VERSION=$(echo $LATEST_RELEASE | sed -e 's/.*"tag_name":"\([^"]*\)".*/\1/')
 
 #UPDATE NEW VERSION
-if [ "$LATEST_RELEASE" != "$version" ]; then
+if [ "$LATEST_VERSION" != "$version" ]; then
 echo -e "\n${red}Your Version of Copyspl0it is outdated!${clear}"
 echo -e "\n${green}Please use the update function: copyspl0it --update!${clear}"
 sleep 5
@@ -83,7 +83,15 @@ fi
 #UPDATE
 if [ "$1"  = "--update" ]; then
 echo -e "\n${turk}You have select the update Feature${clear}"
-sleep 3
+sleep 2
+cd /tmp/
+git clone https://github.com/d43M0n23/copyspl0it.git
+cp -Rf copyspl0it/* $INSTALL_DIR 2> /dev/null
+rm -f /usr/bin/copyspl0it
+ln -s $INSTALL_DIR/copyspl0it /usr/bin/copyspl0it
+echo -e "\n${green}Update finish.Please restart copyspl0it.${clear}"
+rm -f copyspl0it
+exit
 fi
 
 #START MAINSTAGE
