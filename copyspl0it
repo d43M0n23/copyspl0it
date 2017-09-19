@@ -80,6 +80,13 @@ echo -e "\n${green}Please use the update function: copyspl0it --update!${clear}"
 sleep 5
 fi
 
+#UPDATE
+if [ "$1"  = "--update" ]; then
+echo -e "\n${turk}You have select the update Feature${clear}"
+sleep 3
+fi
+
+#START MAINSTAGE
 clear
 echo -e '\n'
 echo -e '                                       ______  _ __ '
