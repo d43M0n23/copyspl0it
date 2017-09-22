@@ -25,5 +25,15 @@ cd copyspl0it
 </pre></i></n>
 copyspl0it is now installed on your system and you can use system wide command: copyspl0it
 
+## UPDATE
+Update of copyspl0it script:
+<pre><i><n>copyspl0it --update</pre></i></n>
+copyspl0it is now updateded on your system. restart the script
+x
+## DEINSTALL ^^
+DEInstallation of copyspl0it script:
+<pre><i><n>copyspl0it --deinstall</pre></i></n>
+copyspl0it is now DEinstalled on your system.
+
 that's it ,)
 Have fun & n1c3 d4Y. 3xpl0it.com
