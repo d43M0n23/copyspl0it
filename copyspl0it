@@ -65,6 +65,7 @@ echo -e "${green} + -- --=[After install you can use the command 'copyspl0it' Se
 sleep 2
 mkdir -p $INSTALL_DIR 2> /dev/null
 cp -Rf $PWD/* $INSTALL_DIR 2> /dev/null
+rm -f /usr/bin/copysploit
 rm -f /usr/bin/copyspl0it
 ln -s $INSTALL_DIR/copyspl0it /usr/bin/copyspl0it
 echo -e "${green} + -- --=[Installation Finish.${clear}"
