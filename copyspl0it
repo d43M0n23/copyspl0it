@@ -145,9 +145,4 @@ if [ ! -d $MSF_PATH/$exploit_dir ]; then mkdir -p $MSF_PATH/$exploit_dir; fi
 	else
 	echo -e "\nPlease enter the exploit number like [33613]!\n"
 fi
-
-#echo -e "\n${red}"
-#read -p "Use search by copysploit [A]gain or [E]xit " rerun
-#echo -e "\n${clear}"
-#if [ $rerun = A ]; then copyspl0it; fi
 exit
