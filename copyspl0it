@@ -103,7 +103,10 @@ if [ "$1"  = "--deinstall" ]; then
 echo -e "\n${turk}You have select the deinstall Feature${clear}"
 sleep 2
 rm -f /usr/bin/copyspl0it
-rm -f /usr/bin/share/copyspl0it/
+cd /usr/share/
+rm -r copyspl0it/
+echo -e "\n${turk}deinstall Finish${clear}"
+cd
 exit
 fi
 
